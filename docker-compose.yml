@@ -12,3 +12,22 @@ services:
     volumes:
       - ./frontend:/usr/src/nuxt-app
       - /usr/src/nuxt-app/node_modules
+    depends_on:
+      - neo4j
+
+  neo4j:
+    image: neo4j:5.9.0-community
+    container_name: neo4j_container
+    environment:
+      - NEO4J_AUTH=neo4j/yourpassword
+      # - NEO4J_server_bolt_listen__address = 0.0.0.0
+    ports:
+      - 7687:7687
+      - 7474:7474
+    volumes:
+      - ./neo4jdata/data:/data
+      - ./neo4jdata/conf:/conf 
+      - ./neo4jdata/import:/import
+      - ./neo4jdata/logs:/logs
+      - ./neo4jdata/plugins:/plugins
+      
