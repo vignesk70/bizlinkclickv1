@@ -16,7 +16,7 @@ services:
       - neo4j
 
   neo4j:
-    image: neo4j:5.9.0-community
+    image: neo4j:5.13.0-community
     container_name: neo4j_container
     environment:
       - NEO4J_AUTH=neo4j/yourpassword
