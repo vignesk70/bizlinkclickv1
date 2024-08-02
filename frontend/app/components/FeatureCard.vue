@@ -7,9 +7,9 @@
                 <p class="text-sm text-gray-600 mt-3">{{data.body.content}}</p>
                 <template #footer>
                     <div class="flex flex-row">
-                        <div class="text-sm mr-2  inline-block align-text-bottom">RM</div>
-                        <div class="text-2xl mr-2 inline-block align-text-bottom">12.99</div>
-                        <div class="text-sm inline-block align-text-bottom">/year</div>
+                        <div class="text-sm mr-2  inline-block align-text-bottom">{{data.body.pricecurrency}}</div>
+                        <div class="text-2xl mr-2 inline-block align-text-bottom">{{data.body.priceamount}}</div>
+                        <div class="text-sm inline-block align-text-bottom">/{{data.body.priceduration}}</div>
                     </div>
                 </template>
             </UCard>
@@ -18,6 +18,7 @@
 const props = defineProps({
     data:Object,
     header:String,
+    
 })
 </script>
 
