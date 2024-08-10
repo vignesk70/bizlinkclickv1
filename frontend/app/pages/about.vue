@@ -1,6 +1,6 @@
 <template>
    <PageHeader :pageheader="pageheader" />
-  Latitude: {{ coords.latitude }}
+  <!-- Latitude: {{ coords.latitude }}
   Longitude: {{ coords.longitude }}
   Accuracy: {{ coords.accuracy }}
   Located At: {{ locatedAt }}
@@ -8,7 +8,7 @@
 <div>
   Show locs 
   <p v-for="items in locs"> {{ items.latitude }} {{items.longitude}} {{items.accuracy }}</p>
-</div>
+</div> -->
 
 </template>
 
