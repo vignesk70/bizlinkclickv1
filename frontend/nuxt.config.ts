@@ -6,11 +6,8 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  modules:[
-    // '@nuxtjs/tailwindcss',
-    '@nuxt/ui',
-    '@vueuse/nuxt',
-  ],
+  modules:[// '@nuxtjs/tailwindcss',
+  '@nuxt/ui', '@vueuse/nuxt', "@sidebase/nuxt-auth"],
 
   compatibilityDate: '2024-08-02',
 })
