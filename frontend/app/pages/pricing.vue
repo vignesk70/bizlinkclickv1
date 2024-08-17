@@ -1,6 +1,6 @@
 <template>
   <PageHeader :pageheader="pageheader" />
-  <div class="flex w-full columns-2 justify-center gap-10 content-between  m-5 ">
+  <div class="flex w-full columns-2 justify-center content-between flex-wrap md:flex-none  ">
     <FeatureCard :ui="ui" :header='"Bronze"' :data="card1" />
     <FeatureCard :ui="ui2" :header='"Silver"' :data="card2" />
     <FeatureCard :ui="ui3" :header='"Gold"' :data="card3" />
@@ -15,7 +15,7 @@ const pageheader = {
 const card1 = {
   body: {
     title: "",
-    content: `Create your personal profile. Your personal link to profile. Share it via NFC or using a barcode.
+    content: `Create your personal profile with a unique link. Share it via NFC or using a barcode.
      Get contacts to key in their own information. Keep track of your contacts who have shared information. 
      Manage contacts and message them using your favourite messaging applications. `,
     pricecurrency: "MYR",
@@ -39,9 +39,9 @@ const card2 = {
 const card3 = {
   body: {
     title: "",
-    content: `Create an organization and assign staff with unique virtual cards. Admin can view staff 
+    content: `Create an organization and assign admins to manage individual staff profiles. Admin can view staff 
     contact statistics. Users can add interactions with contacts for tracking. Setup followup reminders. 
-    Create progression view and discover insight. Additional search for shared contacts among staff. `,
+    Create progression view and discover insight.`,
     pricecurrency: "MYR",
     priceamount: "47.99",
     priceduration: "monthly",

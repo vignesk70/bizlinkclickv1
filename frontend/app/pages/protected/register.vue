@@ -1,6 +1,6 @@
 <template>
-  <PageHeader :pageheader="pageheader" />
-  <!-- <div v-for="(value, key) in data2" class="flex flex-col columns-4">
+    <PageHeader :pageheader="pageheader" />
+    <!-- <div v-for="(value, key) in data2" class="flex flex-col columns-4">
 
     <UInput id="key" v-model="entereddata[key]" :placeholder="value" class="mb-2 w-72"></UInput>
 
@@ -8,31 +8,36 @@
 
   <UButton @click="downloadVCard">Download vCard</UButton> -->
 
-  <!-- <div v-if="data">
+    <!-- <div v-if="data">
     authenticated by {{ data.user.name }}
 
   </div> -->
 
-  <div class="px-12 bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <img class="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow">
-        <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-            Create a new account
-        </h2>
-        <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
-            Or
-            <a href="/protected/register"
-                class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                login to your account
-            </a>
-        </p>
-    </div>
+    <div class="px-12 bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <img class="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow">
+            <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
+                Create a new account
+            </h2>
+            <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
+                Or
+                <a href="#"
+                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                    login to your account
+                </a>
+                <a href="/"
+                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+                    @@click="handleLogout">
+                    logout
+                </a>
+            </p>
+        </div>
 
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form method="POST" action="#">
-                <div>
-                    <!-- <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Name</label>
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <form method="POST" action="#">
+                    <div>
+                        <!-- <label for="email" class="block text-sm font-medium leading-5  text-gray-700">Name</label>
                     <div class="mt-1 relative rounded-md shadow-sm">
                         <input id="name" name="name" placeholder="John Doe" type="text" required=""
                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
@@ -45,15 +50,18 @@
                             </svg>
                         </div>
                     </div> -->
-                    <div v-for="(value, key) in data2" class="flex flex-col columns-4 py-1">
-<p class="text-sm text-slate-700 font-roboto">{{ labels[key] }}</p>
-<UInput :id="key" v-model="entereddata[key]" :placeholder="value" class="mb-2 w-72 font-roboto" :label="labels[key]"></UInput>
+                        <div v-for="(value, key) in data2" class="flex flex-col columns-4 py-1">
+                            <p class="text-sm text-slate-700 font-roboto">{{ labels[key] }}</p>
+                            <USelectMenu  v-if="key === 'country'"  v-model="entereddata[key]" :options="countrylist" placeholder="Select country" value-attribute="label"
+                            />
+                            <UInput v-else :id="key" v-model="entereddata[key]" :placeholder="value"
+                                class="mb-2 w-72 font-roboto" :label="labels[key]"></UInput>
 
-</div>
+                        </div>
 
-                </div>
+                    </div>
 
-                <!-- <div class="mt-6">
+                    <!-- <div class="mt-6">
                     <label for="username" class="block text-sm font-medium leading-5 text-gray-700">Username</label>
                     <div class="mt-1 flex rounded-md shadow-sm">
                         <span
@@ -103,75 +111,99 @@
                     </div>
                 </div> -->
 
-                <div class="mt-6">
-                    <span class="block w-full rounded-md shadow-sm">
-                        <button type="submit"
-                            class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                            Create account
-                        </button>
-                    </span>
-                </div>
-            </form>
+                    <div class="mt-6">
+                        <span class="block w-full rounded-md shadow-sm">
+                            <button type="submit"
+                                class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                Create account
+                            </button>
+                        </span>
+                    </div>
+                </form>
 
+            </div>
         </div>
     </div>
-</div>
 </template>
-<script setup>
+<script setup lang="ts">
+import countrylist from '~/assets/countries.json'
+
+definePageMeta({
+    middleware: 'auth'
+})
+
+const {
+    status,
+    data,
+    lastRefreshedAt,
+    getCsrfToken,
+    getProviders,
+    getSession,
+    signIn,
+    signOut
+} = useAuth()
+
 
 
 
 const pageheader = {
-  number: "04",
-  text: "Register"
+    number: "04",
+    text: "Register"
 }
 
 const entereddata = ref({
-  fullName: '',
-  organization: '',
-  title: '',
-  phone: '',
-  email: '',
-  streetAddress: '',
-  city: '',
-  state: '',
-  zipCode: '',
-  country: '',
-  website: '',
-  username: '',
+    fullName: '',
+    organization: '',
+    title: '',
+    phone: '',
+    email: '',
+    streetAddress: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    country: countrylist[0].label,
+    website: '',
+    username: '',
 })
 const data2 = ref({
-  fullName: 'John Doe',
-  organization: 'Company Inc.',
-  title: 'Software Engineer',
-  phone: '+1234567890',
-  email: 'johndoe@example.com',
-  streetAddress: '123 Main St',
-  city: 'Anytown',
-  state: 'CA',
-  zipCode: '12345',
-  country: 'USA',
-  website: 'https://example.com',
-  username: 'short username with no spaces',
+    fullName: 'John Doe',
+    organization: 'Company Inc.',
+    title: 'Software Engineer',
+    phone: '+1234567890',
+    email: 'johndoe@example.com',
+    streetAddress: '123 Main St',
+    city: 'Anytown',
+    state: 'CA',
+    zipCode: '12345',
+    country: 'USA',
+    website: 'https://example.com',
+    username: 'short username with no spaces',
 })
 const labels = ref({
-  fullName: 'Full Name',
-  organization: 'Company Name',
-  title: 'Designation',
-  phone: 'Phone no.',
-  email: 'Email',
-  streetAddress: 'Address ',
-  city: 'City',
-  state: 'State',
-  zipCode: 'Postcode',
-  country: 'Country',
-  website: 'Website URL',
-  username: 'Short User Name',
+    fullName: 'Full Name',
+    organization: 'Company Name',
+    title: 'Designation',
+    phone: 'Phone no.',
+    email: 'Email',
+    streetAddress: 'Address ',
+    city: 'City',
+    state: 'State',
+    zipCode: 'Postcode',
+    country: 'Country',
+    website: 'Website URL',
+    username: 'Short User Name',
 })
 
+if (status.value === 'authenticated') {
+    // console.log("signed in", data)
+    // console.log("session",getSession())
+    const csrf = getCsrfToken()
+    entereddata.value.fullName = data.value.user.name
+    entereddata.value.email = data.value.user.email
+}
 
 function generateVCard(data) {
-  return `
+    return `
 BEGIN:VCARD
 VERSION:3.0
 FN:${data.fullName}
@@ -186,17 +218,24 @@ END:VCARD
 }
 
 function downloadVCard(data) {
-  const vCard = generateVCard(entereddata.value);
-  console.log(entereddata.value.fullName)
-  const blob = new Blob([vCard], { type: 'text/vcard' });
-  const url = window.URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `${entereddata.value.fullName}.vcf`;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+    const vCard = generateVCard(entereddata.value);
+    // console.log(entereddata.value.fullName)
+    const blob = new Blob([vCard], { type: 'text/vcard' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${entereddata.value.fullName}.vcf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
+function handleLogout(){
+    console.log("Logout")
+    signOut({
+      redirect: true,
+      callbackUrl: 'http://localhost:3000/',
+    })
+}
 
 </script>

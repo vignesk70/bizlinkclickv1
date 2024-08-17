@@ -1,7 +1,7 @@
 <template>
   
     <PageHeader :pageheader="pageheader" />
-    <div class="flex w-full columns-1 justify-center gap-10 content-between  m-5 ">
+    <div class="flex w-full justify-center flex-wrap md:flex-none content-between ">
        
             <!-- cards to here -->
             <FeatureCard :ui="ui" :header='"NFC"' :data="card1"/>

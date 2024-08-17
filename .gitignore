@@ -235,3 +235,4 @@ logs
 # Local env files
 .env.*
 !.env.example
+frontend/app/assets/google-fonts.css
