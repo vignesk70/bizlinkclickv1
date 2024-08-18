@@ -1,11 +1,12 @@
 <template>
+  <div>
   <PageHeader :pageheader="pageheader" />
   <div class="flex w-full columns-2 justify-center content-between flex-wrap md:flex-none  ">
     <FeatureCard :ui="ui" :header='"Bronze"' :data="card1" />
     <FeatureCard :ui="ui2" :header='"Silver"' :data="card2" />
     <FeatureCard :ui="ui3" :header='"Gold"' :data="card3" />
   </div>
-
+</div>
 </template>
 <script setup>
 const pageheader = {

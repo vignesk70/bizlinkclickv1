@@ -1,19 +1,7 @@
 <template>
+  <div>
    <PageHeader :pageheader="pageheader" />
-  <!-- Latitude: {{ coords.latitude }}
-  Longitude: {{ coords.longitude }}
-  Accuracy: {{ coords.accuracy }}
-  Located At: {{ locatedAt }}
- <div v-if="error">{{ error.message }}</div> 
-<div>
-  Show locs 
-  <p v-for="items in locs"> {{ items.latitude }} {{items.longitude}} {{items.accuracy }}</p>
-</div> -->
-
-<!-- <div v-for="(key,value) in data2">
- <UInput :id="`${value}`" v-model="entereddata[value]" :placeholder="key" class="mb-2"></UInput>
-</div>
-<button @click="downloadVCard">Download vCard</button> -->
+  </div>
 </template>
 
 <script setup>

@@ -25,9 +25,24 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-08-02',
+  
+    app: {
+      pageTransition: { name: 'page', mode: 'out-in' },
+      layoutTransition: { name: 'layout', mode: 'out-in' }
+    },
+ 
+  
 
   runtimeConfig: {
     authOrigin: 'http://localhost:3000',
     authSecret: 'my-superb-secret',  
-  }
+  },
+  neo4j: {
+    uri: process.env.NEO4J_URI,
+    auth: {
+      type: 'basic', // @default: 'basic'
+      username: process.env.NEO4J_USERNAME,
+      password:  process.env.NEO4J_PASSWORD
+    },
+  },
 })

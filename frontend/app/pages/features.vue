@@ -1,5 +1,5 @@
 <template>
-  
+  <div> 
     <PageHeader :pageheader="pageheader" />
     <div class="flex w-full justify-center flex-wrap md:flex-none content-between ">
        
@@ -11,6 +11,7 @@
 
     </div>
     <div class="bg-gray-200 h-96"> </div>
+  </div>
 </template>
 <script  setup>
     const card1 = {
