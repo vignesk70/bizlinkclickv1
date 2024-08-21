@@ -11,7 +11,7 @@
 
 
             <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                Create a new account
+                Update profile details
             </h2>
             <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
                 Or

@@ -52,7 +52,17 @@
 
 import countrylist from '~/assets/countries.json'
 
-const {status} = useAuth()
+const {
+    status,
+    data,
+    lastRefreshedAt,
+    getCsrfToken,
+    getProviders,
+    getSession,
+    signIn,
+    signOut
+} = useAuth()
+console.log(getProviders())
 const routes =  useRouter()
 if(status.value === 'authenticated'){
     console.log('already authenticated')

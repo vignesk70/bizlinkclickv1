@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="w-80 md:w-[80%] mx-auto mt-4 rounded-lg border-2 md:max-w-xl md:transition-all shadow-lg ">
+        <div class="w-80 md:w-[80%] mx-auto mt-4 rounded-lg  md:max-w-xl md:transition-all  overflow-clip shadow-lg dark:bg-slate-200 ">
             <div class=" md:flex md:space-x-4 p-4 md:p-0 md:justify-between overflow-clip">
                 <div class="flex mx-auto justify-center md:ml-0 md:items-center ">
                     <img alt="this is" src="/images/profilepic.jpeg"
