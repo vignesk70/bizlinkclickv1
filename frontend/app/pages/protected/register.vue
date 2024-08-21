@@ -25,7 +25,7 @@
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                <form method="POST" action="#">
+               
                     <div>
                         <div v-for="(value, key) in data2" class="flex flex-col columns-4 py-1">
                             <p class="text-sm text-slate-700 font-roboto">{{ labels[key] }}</p>
@@ -40,13 +40,14 @@
 
                     <div class="mt-6">
                         <span class="block w-full rounded-md shadow-sm">
-                            <button type="submit"
+                          
+                            <button  @click="handleSubmit"
                                 class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                                 Create account
                             </button>
                         </span>
                     </div>
-                </form>
+             
 
             </div>
         </div>
@@ -156,6 +157,20 @@ function downloadVCard(data) {
     link.click();
     document.body.removeChild(link);
 }
+
+async function handleSubmit(){
+    
+    console.log('in handle Submit')
+    const bodydata =  JSON.stringify(entereddata.value)
+    const response =
+            await $fetch('/api/data/store', {
+                method: 'POST',
+                body: {
+                    bodydata
+                }
+            })
+}
+
 
 function handleLogout() {
     console.log("Logout")

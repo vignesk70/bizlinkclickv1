@@ -1,10 +1,10 @@
 <template>
     <UCard class="shadow-lg m-4">
                 <template #header>
-                  <div class="font-roboto">{{header}}</div> 
+                  <div class="font-roboto dark:text-gray-700">{{header}}</div> 
                 </template>
                 <h1 class="font-bold font-barlow text-2xl">{{ data.body.title }}</h1>
-                <p class="text-sm font-montserrat text-gray-600 mt-3">{{data.body.content}}</p>
+                <p class="text-sm font-montserrat text-gray-600 mt-3 dark:text-gray-300">{{data.body.content}}</p>
                 <template #footer v-if="data.body.pricecurrency">
                     <div class="flex flex-row" >
                         <div class="text-sm mr-2  inline-block align-text-bottom">{{data.body.pricecurrency}}</div>

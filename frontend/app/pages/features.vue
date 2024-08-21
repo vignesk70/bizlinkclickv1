@@ -5,6 +5,7 @@
        
             <!-- cards to here -->
             <FeatureCard :ui="ui" :header='"NFC"' :data="card1"/>
+            <FeatureCard :ui="ui4" :header='"QR Code"' :data="card10"/>
             <FeatureCard :ui="ui2" :header='"SaaS Platform"' :data="card2"/>
             <FeatureCard :ui="ui3" :header='"Enterprise Features"' :data="card3"/>
             
@@ -36,6 +37,14 @@
             interactions with the contact"
         }
     }
+    const card10 = {
+        body:{
+            title:"Online Profile",
+            content:"Maintain an online presence with a beautiful custom profile that showcases your details and\
+            a share contact option to connect with you online. "
+        }
+    }
+
     const ui = {
   "base": "w-56 overflow-hidden",
   "body": {
@@ -45,7 +54,7 @@
   },
   "header": {
     "base": "font-bold text-center",
-    "background": "bg-orange-300",
+    "background": "bg-lime-500",
 
   },
   "footer": {
@@ -76,7 +85,15 @@ const ui3 = {
     "base": "w-56 overflow-hidden",
     "header": {
     "base": "font-bold text-center",
-    "background": "bg-cool-400",
+    "background": "bg-cool-300",
+    "padding": "px-4 py-5 sm:px-6"
+  },
+}
+const ui4 = {
+    "base": "w-56 overflow-hidden",
+    "header": {
+    "base": "font-bold text-center",
+    "background": "bg-cyan-400",
     "padding": "px-4 py-5 sm:px-6"
   },
 }

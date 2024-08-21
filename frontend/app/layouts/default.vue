@@ -1,6 +1,7 @@
 <template>
      <div class="md:m-4 ">
-        <NavBar />
+        <!-- <NavBar /> -->
+        <NavBarHide />
         <!-- <DisplayMenuIcon /> -->
     <slot></slot>
 

@@ -4,7 +4,7 @@
         <div class="px-12 bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div class="sm:mx-auto sm:w-full sm:max-w-md">
                 <!-- <img class="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow"> -->
-                <UIcon name="i-heroicons-user-circle" class="flex mx-auto h-20 w-20" />
+                <UIcon name="i-heroicons-user-circle" class="flex mx-auto h-20 w-20 dark:bg-black" />
 
                 <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
                     Create a new account
