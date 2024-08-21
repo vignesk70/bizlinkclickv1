@@ -50,6 +50,7 @@
              
 
             </div>
+            <UButton to="/profile">View Profile</UButton>
         </div>
     </div>
 </div>
@@ -71,8 +72,6 @@ const {
     signIn,
     signOut
 } = useAuth()
-
-
 
 
 const pageheader = {

@@ -45,7 +45,7 @@
                     revolutionizes
                     business networking by replacing traditional paper business cards with a sleek, eco-friendly
                     alternative.
-                    Utilizing NFC technology, BizLink.Click allows users to share contact information effortlessly
+                    Utilizing NFC technology, BizLink.click allows users to share contact information effortlessly
                     through a
                     single reusable card, reducing paper waste and promoting sustainability.</h3>
 
