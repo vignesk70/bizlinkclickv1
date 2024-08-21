@@ -52,6 +52,13 @@
 
 import countrylist from '~/assets/countries.json'
 
+const {status} = useAuth()
+const routes =  useRouter()
+if(status.value === 'authenticated'){
+    console.log('already authenticated')
+    routes.push('/protected/register')
+}   
+
 const pageheader = {
     number: "04",
     text: "Register"
@@ -99,6 +106,7 @@ const labels = ref({
     website: 'Website URL',
     username: 'Short User Name',
 })
+
 
 
 function generateVCard(data) {
