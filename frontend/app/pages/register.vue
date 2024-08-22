@@ -7,18 +7,26 @@
                 <UIcon name="i-heroicons-user-circle" class="flex mx-auto h-20 w-20 dark:bg-black" />
 
                 <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                    Create a new account
+                    Create a new account via a profile below
                 </h2>
-                <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
+                <!-- <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
                     Or
                     <a href="/protected/register"
                         class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                         login to your account
                     </a>
-                </p>
+                </p> -->
+                <div class="mt-4">
+                    <p class="text-roboto mb-4 text-center">Login With </p>
+                    <div class="flex space-x-4 mx-auto justify-center">
+                        <div v-for="(provider, key) in providers" class="p-4 rounded-lg border mb-4 w-24">
+                            <ULink :to="provider?.signinUrl">{{ provider?.name }}</ULink>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <!-- <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
                     <form method="POST" action="#">
                         <div>
@@ -44,8 +52,9 @@
                     </form>
 
                 </div>
-            </div>
+            </div> -->
         </div>
+
     </div>
 </template>
 <script setup lang="ts">
@@ -62,12 +71,14 @@ const {
     signIn,
     signOut
 } = useAuth()
-console.log(getProviders())
-const routes =  useRouter()
-if(status.value === 'authenticated'){
+
+const providers = await getProviders()
+
+const routes = useRouter()
+if (status.value === 'authenticated') {
     console.log('already authenticated')
     routes.push('/protected/register')
-}   
+}
 
 const pageheader = {
     number: "04",
