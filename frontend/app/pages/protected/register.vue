@@ -73,7 +73,6 @@ const {
     signOut
 } = useAuth()
 
-
 const pageheader = {
     number: "04",
     text: "Register"
@@ -162,7 +161,7 @@ async function handleSubmit(){
     console.log('in handle Submit')
     const bodydata =  JSON.stringify(entereddata.value)
     const response =
-            await $fetch('/api/data/store', {
+            await $fetch('/api/data/createprofile', {
                 method: 'POST',
                 body: {
                     bodydata

@@ -7,7 +7,7 @@
                 <UIcon name="i-heroicons-user-circle" class="flex mx-auto h-20 w-20 dark:bg-black" />
 
                 <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                    Create a new account via a profile below
+                    Create a new account or Login via a profile below
                 </h2>
                 <!-- <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
                     Or
@@ -17,7 +17,7 @@
                     </a>
                 </p> -->
                 <div class="mt-4">
-                    <p class="text-roboto mb-4 text-center">Login With </p>
+                    <!-- <p class="text-roboto mb-4 text-center">Login With </p> -->
                     <div class="flex space-x-4 mx-auto justify-center">
                         <div v-for="(provider, key) in providers" class="p-4 rounded-lg border mb-4 w-24">
                             <ULink :to="provider?.signinUrl">{{ provider?.name }}</ULink>
